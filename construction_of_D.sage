@@ -11,10 +11,13 @@ for x in C:
 D1=Set(C).union(Set(Set(F1).union(Set(F2))))
 D2=[]
 for x in D1:
-	for k in (1..30):
+	for k in (1..45):
 		c=x[2]
 		if c^k < 10^18:
 			D2.append((1,c^k-1,c^k))
+		b=x[1]
+		if b^k+1 < 10^18 and is_odd(k):
+			D2.append((1,b^k,b^k+1))
 F3=[]
 for x in D2:
 	if transfer1(ZZ(x[2]))[2]<10^18:
@@ -26,10 +29,13 @@ for x in D2:
 D3=Set(D2).union(Set(Set(F3).union(Set(F4))))
 D4=[]
 for x in D3:
-	for k in (1..30):
+	for k in (1..45):
 		c=x[2]
 		if c^k < 10^18:
 			D4.append((1,c^k-1,c^k))
+		b=x[1]
+		if b^k+1 < 10^18 and is_odd(k):
+			D4.append((1,b^k,b^k+1))
 F5=[]
 for x in D4:
 	if transfer1(ZZ(x[2]))[2]<10^18:
@@ -56,7 +62,10 @@ for x in D6:
 D7=Set(D6).union(Set(Set(F7).union(Set(F8))))
 D8=[]
 for x in D7:
-	for k in (1..30):
+	for k in (1..45):
 		c=x[2]
 		if c^k < 10^18:
 			D8.append((1,c^k-1,c^k))
+		b=x[1]
+		if b^k+1 < 10^18 and is_odd(k):
+			D8.append((1,b^k,b^k+1))
