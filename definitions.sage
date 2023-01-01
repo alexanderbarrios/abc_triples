@@ -52,7 +52,14 @@ def cor3_5(n,p,k):  ## This outputs an abc triple corresponding to Corollary 3.5
 		return (1,c^k-1,c^k)
 	else:
 		return 'not applicable'
-def cor3_6(n,k):  ## This outputs an abc triple corresponding to Corollary 3.6. Note that if n and k don't satisfy the assumptions of Corollary 3.6, then this outputs 'not applicable'
+def cor3_6(n,p,k):  ## This outputs an abc triple corresponding to Corollary 3.6. Note that if n, p, and k don't satisfy the assumptions of Corollary 3.6, then this outputs 'not applicable'
+	if n>1 and p>radical(n) and is_prime(p):
+		op = ZZ(mod(n,p).multiplicative_order())
+		c=n^(p*op)
+		return (1,c^k-1,c^k)
+	else:
+		return 'not applicable'
+def cor3_7(n,k):  ## This outputs an abc triple corresponding to Corollary 3.7. Note that if n and k don't satisfy the assumptions of Corollary 3.7, then this outputs 'not applicable'
 	if is_even(n) and is_squarefree(n):
 		return 'not applicable'
 	if n==1:
@@ -60,19 +67,19 @@ def cor3_6(n,k):  ## This outputs an abc triple corresponding to Corollary 3.6. 
 	else:
 		c=n^(n-1)
 		return (1,c^k-1,c^k)
-def cor3_7(n,k):  ## This outputs an abc triple corresponding to Corollary 3.7. Note that if n and k don't satisfy the assumptions of Corollary 3.7, then this outputs 'not applicable'
+def cor3_8(n,k):  ## This outputs an abc triple corresponding to Corollary 3.8. Note that if n and k don't satisfy the assumptions of Corollary 3.8, then this outputs 'not applicable'
 	if n>1 and is_even((n+1)*k):
 		c=n^(n+1)
 		return (1,c^k-1,c^k)
 	else:
 		return 'not applicable'
-def cor3_8(j,k):  ## This outputs an abc triple corresponding to Corollary 3.8. Note that if j and k don't satisfy the assumptions of Corollary 3.8, then this outputs 'not applicable'
+def cor3_9(j,k):  ## This outputs an abc triple corresponding to Corollary 3.9. Note that if j and k don't satisfy the assumptions of Corollary 3.9, then this outputs 'not applicable'
 	if j>1:
 		c=(2^j-1)^2
 		return (1,c^k-1,c^k)
 	else:
 		return 'not applicable'
-def cor3_9(n,j,k):  ## This outputs an abc triple corresponding to Corollary 3.9. Note that if n, j, and k don't satisfy the assumptions of Corollary 3.9, then this outputs 'not applicable'
+def cor3_10(n,j,k):  ## This outputs an abc triple corresponding to Corollary 3.10. Note that if n, j, and k don't satisfy the assumptions of Corollary 3.10, then this outputs 'not applicable'
 	if n>2 and is_odd(n) and is_even(k):
 		c=(n^j-1)^(n)
 		return (1,c^k-1,c^k)
@@ -81,13 +88,13 @@ def cor3_9(n,j,k):  ## This outputs an abc triple corresponding to Corollary 3.9
 		return (1,c^k-1,c^k)
 	else:
 		return 'not applicable'
-def cor3_10(n,k):   ## This outputs an abc triple corresponding to Corollary 3.10. Note that if n and k don't satisfy the assumptions of Corollary 3.10, then this outputs 'not applicable'
+def cor3_11(n,k):   ## This outputs an abc triple corresponding to Corollary 3.11. Note that if n and k don't satisfy the assumptions of Corollary 3.11, then this outputs 'not applicable'
 	if is_even(n) and is_odd(k):
 		b=n^(n+1)
 		return (1,b^k,b^k + 1)
 	else:
 		return 'not applicable'
-def cor3_11(n,j,k):    ## This outputs an abc triple corresponding to Corollary 3.11. Note that if n, j, and k don't satisfy the assumptions of Corollary 3.11, then this outputs 'not applicable'
+def cor3_12(n,j,k):    ## This outputs an abc triple corresponding to Corollary 3.12. Note that if n, j, and k don't satisfy the assumptions of Corollary 3.12, then this outputs 'not applicable'
 	if n>2 and is_odd(n) and is_odd(k):
 		b=(n^j-1)^n
 		return (1,b^k,b^k + 1)
